@@ -22,9 +22,14 @@ function Central({ title, children }: Props) {
         <div className="Central__page__content">{children}</div>
         <Divider />
         <div className="Central__page__footer">
-          <div className="Central__page__footer__release">Release: 8.10.1</div>
+        <a href="/privacy-policy">Privacy Policy</a>
+              <span>|</span>
+              <a href="/terms-of-service">Terms of Service</a>
+              <span>|</span>
+              <a href="/contact">Contact Us</a>
+          <div className="Central__page__footer__release">Release: 8.10.2</div>
           <div className="Central__page__footer__copyright">
-            © 2024 Ellucian Company L.P. and its affiliates.
+            © 2024 Tunnel Runners Inc. All rights reserved.
           </div>
         </div>
       </div>

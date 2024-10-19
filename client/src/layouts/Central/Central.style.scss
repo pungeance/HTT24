@@ -10,12 +10,18 @@
       helvetica,
       sans-serif;
 
-    &__title {
-      margin-top: 1.67rem;
-      margin-bottom: 1.5rem;
-      font-weight: normal;
-      font-size: 1.3em;
-    }
+      &__title {
+        margin-top: 1.67rem;
+        margin-bottom: 1.5rem;
+        font-weight: bold; /* Make the title bold */
+        font-size: 2.5em; /* Increase font size for better visibility */
+        color: #0056a4; /* Carleton Blue */
+        text-align: center; /* Center align the title */
+        text-transform: uppercase; /* Uppercase for emphasis */
+        letter-spacing: 1px; /* Add spacing between letters */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        animation: fadeIn 0.5s ease; /* Add a fade-in effect on load */
+      }
 
     &__footer {
       font-weight: bold;
@@ -31,4 +37,13 @@
       }
     }
   }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
 }
