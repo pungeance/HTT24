@@ -1,48 +1,84 @@
-@import "../../globals.scss";
-
 .Timetable {
-  font-size: 0.8rem;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: Arial, sans-serif;
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border-color: black;
+  &__header {
+    display: flex;
+    background-color: #258940; // Header background color
+    color: white;
 
-    tr {
-      border: solid 2px #e0e0e0;
-    }
-
-    td {
-      border: solid 2px #e0e0e0;
-      padding: 10px;
+    &-cell {
+      flex: 1;
+      padding: 15px;
       text-align: center;
-      height: 10px;
+      font-weight: bold;
+      border-right: 1px solid rgba(0, 0, 0, 0.3);
+
+      &:last-child {
+        border-right: none;
+      }
     }
+  }
 
-    th {
-      width: 5rem !important;
-      max-width: 5rem !important;
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+
+    &:nth-child(even) {
+      background-color: #f9f9f9;
     }
   }
 
-  &__head {
-    background-color: #cccccc;
-  }
-
-  &__cell--event {
-    background-color: #cccccc;
-  }
-
-  &__cell--time {
-    border-bottom: solid 2px #ffffff !important;
-  }
-
-  &__cell--multiple-events {
-    background-color: rgba($theme--dark, 0.31);
-    color: $theme--dark;
+  &__time-cell {
+    width: 60px; // Fixed width for time cells
+    padding: 10px;
     font-weight: bold;
+    text-align: center;
+    background-color: #e3f2fd; // Light blue for time column
+  }
+
+  &__cell {
+    flex: 1;
+    position: relative;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    transition: background-color 0.3s;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &--event {
+      background-color: #c7fed6; // Light green for single events
+      border-left: 3px solid #1d7a1d; // Left border for events
+      border-radius: 5px;
+    }
+
+    &--multiple-events {
+      background-color: #f1c5c9; // Light red for multiple events
+      border-left: 3px solid #721c24; // Left border for multiple events
+      border-radius: 5px;
+    }
+  }
+
+  .Timetable__event {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #c7fed6; // Gray background for events
+  }
+
+  .event-label {
+    font-size: 12px; // Adjust font size as needed
   }
 }
