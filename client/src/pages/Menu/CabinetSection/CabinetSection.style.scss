@@ -3,8 +3,18 @@
 .CabinetSection {
   display: flex;
   gap: 0.5rem;
+
   img {
     height: 3.2rem;
+    transition: transform 0.1s ease; // Smooth transition for scaling
+    animation: pulse 1.5s infinite; // Continuous pulsing animation
+
+    // Shake animation triggered on hover
+    &:hover {
+      animation: shake 0.5s; // Duration of shake
+      animation-timing-function: linear; // Ensure consistent shaking
+      animation-iteration-count: infinite; // Infinite shaking while hovered
+    }
   }
 
   li {
@@ -18,5 +28,32 @@
 
   a:hover {
     text-decoration: underline;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1); // Original size
+  }
+  50% {
+    transform: scale(1.4); // Scale up to 110%
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0); // Start at original position
+  }
+  25% {
+    transform: translate(-3px); // Move left
+  }
+  50% {
+    transform: translate(3px); // Move right
+  }
+  75% {
+    transform: translate(-3px); // Move left again
+  }
+  100% {
+    transform: translate(0); // Return to original position
   }
 }
