@@ -50,9 +50,7 @@ export const fetchTimetable = async (
 };
 
 export const createTimetable = async (
-  name: string,
-  scheduledEventIds: string[],
-  jwt: string,
+name: string, scheduledEventIds: string[], jwt: string, timetableName: string,
 ) => {
   const response = await fetch(
     `${import.meta.env.VITE_API_ROOT}/api/v1/timetables`,
