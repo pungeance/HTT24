@@ -4,46 +4,91 @@
     margin-left: 1%;
     margin-right: 2%;
     font-style: normal;
-    font-family:
-      verdana,
-      arial narrow,
-      helvetica,
-      sans-serif;
+    font-family: verdana, arial narrow, helvetica, sans-serif;
 
-      &__title {
-        margin-top: 1.67rem;
-        margin-bottom: 1.5rem;
-        font-weight: bold; /* Make the title bold */
-        font-size: 2.5em; /* Increase font size for better visibility */
-        color: #0056a4; /* Carleton Blue */
-        text-align: center; /* Center align the title */
-        text-transform: uppercase; /* Uppercase for emphasis */
-        letter-spacing: 1px; /* Add spacing between letters */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        animation: fadeIn 0.5s ease; /* Add a fade-in effect on load */
+    background-color: #ffffff; /* Light mode background */
+    color: #333; /* Light mode text color */
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #121212; /* Dark background */
+      color: #e0e0e0; /* Light text color */
+    }
+
+    &__title {
+      margin-top: 1.67rem;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      font-size: 2.5em;
+
+      @media (prefers-color-scheme: dark) {
+        color: #bb86fc; /* Dark mode title color */
       }
+    }
+
+    &__content {
+      background-color: inherit; /* Ensure it inherits the background */
+      color: inherit; /* Ensure it inherits the text color */
+      padding: 1rem; /* Add some padding for spacing */
+      
+      @media (prefers-color-scheme: dark) {
+        /* No specific styles needed, inherits from parent */
+      }
+    }
 
     &__footer {
-      font-weight: bold;
-      font-size: 80%;
-      text-align: left;
+      background-color: inherit; /* Ensure it inherits the background */
+      padding: 1.5rem 0; /* Padding for space */
+      text-align: center; /* Centered text */
+      border-top: 1px solid #e0e0e0; /* Light border on top */
+
+      @media (prefers-color-scheme: dark) {
+        border-top: 1px solid #333; /* Darker border in dark mode */
+      }
 
       &__release {
         text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+
+        @media (prefers-color-scheme: dark) {
+          color: #bbb; /* Dark mode release text color */
+        }
       }
 
       &__copyright {
-        margin-top: 1.67rem;
+        margin-bottom: 0.5rem;
+
+        @media (prefers-color-scheme: dark) {
+          color: #bbb; /* Dark mode copyright text color */
+        }
+      }
+
+      &__links {
+        a {
+          color: #0056a4; /* Light mode link color */
+          text-decoration: none; /* Remove underline */
+          margin: 0 0.5rem; /* Spacing between links */
+          transition: color 0.3s; /* Smooth color transition on hover */
+
+          @media (prefers-color-scheme: dark) {
+            color: #bb86fc; /* Dark mode link color */
+          }
+
+          &:hover {
+            color: #003b75; /* Darker color on hover in light mode */
+            @media (prefers-color-scheme: dark) {
+              color: #3700b3; /* Darker color on hover in dark mode */
+            }
+          }
+        }
+
+        span {
+          color: #999; /* Light mode separator color */
+          @media (prefers-color-scheme: dark) {
+            color: #bbb; /* Dark mode separator color */
+          }
+        }
       }
     }
   }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
 }
