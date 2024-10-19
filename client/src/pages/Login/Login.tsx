@@ -4,17 +4,21 @@ import { Base as Layout } from "@/layouts";
 import "./Login.style.scss";
 
 function Login() {
+  // State variables for email and password
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [message, setMessage] = useState(null);
   const { login } = useAccountContext();
 
   const attemptLogin = async () => {
     try {
-      const message = await login("admin@email.com", "password");
+      const message = await login(email, password);
       setMessage(message);
     } catch (error) {
-      console.log(error);
+      setMessage(error); 
     }
   };
+
 
   return (
     <Layout>
@@ -34,9 +38,19 @@ function Login() {
           </div>
           {message && <p>{message}</p>}
           <div className="Login__panel__content__input">
-            <input type="text" placeholder="MyCarletonOne username"></input>
-            <input type="password" placeholder="Password"></input>
-          </div>
+          <input
+            type="text"
+            placeholder="MyCarletonOne username"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
           <div className="Login__panel__content__checkbox">
             <input type="checkbox"></input>
             <label>Keep me signed in</label>
